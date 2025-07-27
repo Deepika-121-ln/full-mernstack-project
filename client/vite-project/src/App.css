@@ -1,0 +1,88 @@
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --panel: #f3f3f3;
+}
+
+.dark {
+  --bg: #121212;
+  --text: #ffffff;
+  --panel: #1e1e1e;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.app-wrapper {
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: all 0.3s ease-in-out;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 220px;
+  background-color: var(--panel);
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar button {
+  display: block;
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  background-color: #0080ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Main panel styles */
+.main {
+  flex: 1;
+  padding: 40px;
+  background-color: var(--bg);
+  color: var(--text);
+  position: relative;
+}
+
+.main input {
+  width: 60%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: var(--panel);
+  border: none;
+  color: var(--text);
+}
+
+.main button {
+  padding: 10px 20px;
+  background-color: #0080ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.top-bar {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.theme-toggle {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}

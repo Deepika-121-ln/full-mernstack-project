@@ -1,26 +1,30 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+// import { Sun, Moon } from 'lucide-react'; // optional icons, use any
 
 const DarkModeToggle = () => {
-  const [isDark, setIsDark] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem('theme') === 'dark';
+  });
 
   useEffect(() => {
-    const root = window.document.documentElement;
-    if (isDark) {
-      root.classList.add('dark');
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
     } else {
-      root.classList.remove('dark');
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     }
-  }, [isDark]);
+  }, [darkMode]);
 
   return (
     <button
-      onClick={() => setIsDark(!isDark)}
-      className="px-4 py-2 text-sm rounded bg-gray-300 dark:bg-gray-800 text-black dark:text-white hover:scale-105 transition"
+      onClick={() => setDarkMode(!darkMode)}
+      className="text-xl p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:scale-110 transition"
+      title="Toggle theme"
     >
-      {isDark ? '🌙 Dark' : '☀️ Light'} 
+      {darkMode ? <Sun className="text-yellow-400" /> : <Moon className="text-blue-500" />}
     </button>
   );
 };
 
 export default DarkModeToggle;
-
